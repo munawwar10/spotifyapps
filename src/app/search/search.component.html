@@ -1,0 +1,16 @@
+<h1 class="center">Welcome to Spotify Apps</h1>
+
+<p class="center">
+  Use Spotify Apps to search and view your favourite artist profile.
+</p>
+<form class="form-group">
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="searchStr"
+      placeholder="Enter name of artist"
+      (keyup)="searchKeyupStream$.next()"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+</form>

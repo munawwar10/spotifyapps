@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<app-search (emitSearchKey)="searchMusic($event)"></app-search>
+
+<div class="form-group" *ngIf="listOfArtist !== null">
+  <ng-container *ngFor="let artist of listOfArtist">
+    <a (click)="getArtistDetails(artist.id)" style="cursor:pointer">{{
+      artist.name
+    }}</a>
+    <p>Genres: {{ artist.genres }}</p>
+  </ng-container>
+</div>
+<div
+  class="card text-white bg-secondary mb-3"
+  style="max-width: 30rem;margin: auto;"
+  *ngIf="artistDetails !== null"
+>
+  <p class="para">Name : {{ artistDetails.name }}</p>
+  <p class="para">Genres : {{ artistDetails.genres }}</p>
+  <p class="para">Followers : {{ artistDetails.followers.total }}</p>
+  <p class="para">Popularity : {{ artistDetails.popularity }}</p>
+  <img [src]="artistDetails.images[0].url" alt="" class="center" />
+</div>
